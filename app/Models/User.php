@@ -58,4 +58,9 @@ class User extends Authenticatable
         $query->with($this->relation);
     }
 
+    public function interests()
+    {
+        return $this->hasOne(Interest::class,'user_id','id');
+    }
+
 }
