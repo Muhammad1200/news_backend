@@ -25,7 +25,6 @@ class AddInterestRequest extends Template
     {
         return [
             'name' => 'required',
-            'checked' => 'required'
         ];
     }
 }

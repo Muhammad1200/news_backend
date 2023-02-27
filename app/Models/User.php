@@ -23,7 +23,7 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
-        'country',
+        'category',
     ];
 
 
@@ -46,7 +46,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $relation = ['interests'];
+    protected $relation = ['sources'];
 
     public function setPasswordAttribute($value)
     {
@@ -58,9 +58,9 @@ class User extends Authenticatable
         $query->with($this->relation);
     }
 
-    public function interests()
+    public function sources()
     {
-        return $this->hasOne(Interest::class,'user_id','id');
+        return $this->hasOne(Source::class,'user_id','id');
     }
 
 }

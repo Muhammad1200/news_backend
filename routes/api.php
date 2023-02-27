@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'auth', 'as' => 'auth.'],function (){
     Route::post('login',[AuthController::class,'login'])->name('login');
     Route::post('signup',[AuthController::class,'signup'])->name('signup');
-    Route::post('forgot',[AuthController::class,'forgot'])->name('forgot');
-    Route::post('change-password',[AuthController::class,'changePassword'])->name('changePassword');
+//    Route::post('forgot',[AuthController::class,'forgot'])->name('forgot');
+//    Route::post('change-password',[AuthController::class,'changePassword'])->name('changePassword');
 
 });
 
@@ -35,7 +35,7 @@ Route::group(['middleware'=> 'auth:sanctum'],function (){
         Route::post('/profile-update',[UserController::class,'profileUpdate'])->name('profileUpdate');
         Route::post('/change-password',[UserController::class,'changePassword'])->name('changePassword');
 
-        Route::group(['prefix'=>'interest','as'=>'interest.'],function (){
+        Route::group(['prefix'=>'sources','as'=>'sources.'],function (){
             Route::get('/',[InterestController::class,'index'])->name('get');
             Route::post('/add',[InterestController::class,'add'])->name('add');
         });

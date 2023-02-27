@@ -22,7 +22,7 @@ class AuthController extends Controller
         try {
             $credentials = request(['email', 'password']);
 
-            $user = User::where('email', $credentials['email'])->first();
+            $user = User::relations()->where('email', $credentials['email'])->first();
 
             if (empty($user)) return $this->respondUnauthorized([], false, 'User does not exists');
 
@@ -48,6 +48,8 @@ class AuthController extends Controller
             DB::beginTransaction();
             $user = User::create($request->all());
             DB::commit();
+
+            $user = User::relations()->where('id',$user->id)->first();
 
             return $this->respond(
                 [

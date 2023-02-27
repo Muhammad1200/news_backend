@@ -31,7 +31,7 @@ class UsersRequests extends Template
             'email' => 'required|unique:users',
             'password' => 'min:6|required_with:confirm_password|same:confirm_password',
             'confirm_password' => 'required|min:6',
-            'country' => 'required|min:6',
+            'category' => 'required|min:6',
         ];
     }
 
