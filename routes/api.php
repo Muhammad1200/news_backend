@@ -21,8 +21,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'auth', 'as' => 'auth.'],function (){
     Route::post('login',[AuthController::class,'login'])->name('login');
     Route::post('signup',[AuthController::class,'signup'])->name('signup');
-//    Route::post('forgot',[AuthController::class,'forgot'])->name('forgot');
-//    Route::post('change-password',[AuthController::class,'changePassword'])->name('changePassword');
 
 });
 
