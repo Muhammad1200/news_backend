@@ -18,3 +18,7 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
+Route::get('/',function (){
+    return 'welcome';
+});
+
